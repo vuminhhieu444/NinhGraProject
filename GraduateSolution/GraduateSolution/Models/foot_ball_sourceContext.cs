@@ -159,11 +159,11 @@ namespace GraduateSolution.Models
 
                 entity.Property(e => e.Trangthai).HasColumnName("TRANGTHAI");
 
-                entity.HasOne(d => d.MaadminNavigation)
-                    .WithMany(p => p.NguoiDungs)
-                    .HasForeignKey(d => d.Maadmin)
-                    .OnDelete(DeleteBehavior.Cascade)
-                    .HasConstraintName("FK_nguoi_dung_ADMIN");
+                //entity.HasOne(d => d.MaadminNavigation)
+                //    .WithMany(p => p.NguoiDungs)
+                //    .HasForeignKey(d => d.Maadmin)
+                //    .OnDelete(DeleteBehavior.Cascade)
+                //    .HasConstraintName("FK_nguoi_dung_ADMIN");
             });
 
             modelBuilder.Entity<TinBai>(entity =>

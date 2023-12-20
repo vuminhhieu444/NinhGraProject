@@ -12,6 +12,6 @@ namespace GraduateSolution.Models
         public string? Noidung { get; set; }
         public bool? Trangthai { get; set; }
 
-        public virtual Admin? MaadminNavigation { get; set; }
+        //public virtual Admin? MaadminNavigation { get; set; }
     }
 }
