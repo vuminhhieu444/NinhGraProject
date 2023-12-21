@@ -20,15 +20,18 @@ namespace GraduateSolution.Models
         public virtual DbSet<Anh> Anhs { get; set; } = null!;
         public virtual DbSet<DanhMuc> DanhMucs { get; set; } = null!;
         public virtual DbSet<DanhMucCon> DanhMucCons { get; set; } = null!;
+        public virtual DbSet<DoiThiDau> DoiThiDaus { get; set; } = null!;
         public virtual DbSet<NguoiDung> NguoiDungs { get; set; } = null!;
         public virtual DbSet<TinBai> TinBais { get; set; } = null!;
+        public virtual DbSet<TranDau> TranDaus { get; set; } = null!;
+        public virtual DbSet<XepHang> XepHangs { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=.\\SQLExpress;Database=foot_ball_source;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=DESKTOP-HI9E4UJ\\SQLEXPRESS;Database=foot_ball_source;Trusted_Connection=True;");
             }
         }
 
@@ -132,6 +135,17 @@ namespace GraduateSolution.Models
                 //    .HasConstraintName("FK_danh_muc_con_danh_muc");
             });
 
+            modelBuilder.Entity<DoiThiDau>(entity =>
+            {
+                entity.ToTable("DoiThiDau");
+
+                entity.Property(e => e.Id).HasMaxLength(50);
+
+                entity.Property(e => e.TenDoiThiDau).HasMaxLength(50);
+
+                entity.Property(e => e.TenGiaiDau).HasMaxLength(100);
+            });
+
             modelBuilder.Entity<NguoiDung>(entity =>
             {
                 entity.HasKey(e => e.Manguoidung)
@@ -201,6 +215,37 @@ namespace GraduateSolution.Models
                 entity.Property(e => e.Tieude).HasColumnName("TIEUDE");
 
                 entity.Property(e => e.Trangthai).HasColumnName("TRANGTHAI");
+            });
+
+            modelBuilder.Entity<TranDau>(entity =>
+            {
+                entity.ToTable("TranDau");
+
+                entity.Property(e => e.Id).HasMaxLength(50);
+
+                entity.Property(e => e.TenDoiDau1).HasMaxLength(50);
+
+                entity.Property(e => e.TenDoiDau2).HasMaxLength(50);
+
+                entity.Property(e => e.TenGiaiDau).HasMaxLength(100);
+            });
+
+            modelBuilder.Entity<XepHang>(entity =>
+            {
+                entity.HasKey(e => e.MaBangXepHang);
+
+                entity.ToTable("XepHang");
+
+                entity.Property(e => e.MaBangXepHang).HasMaxLength(50);
+
+                entity.Property(e => e.HieuSo)
+                    .HasMaxLength(5)
+                    .IsUnicode(false)
+                    .IsFixedLength();
+
+                entity.Property(e => e.TenDoiThiDau).HasMaxLength(30);
+
+                entity.Property(e => e.TenGiaiDau).HasMaxLength(30);
             });
 
             OnModelCreatingPartial(modelBuilder);

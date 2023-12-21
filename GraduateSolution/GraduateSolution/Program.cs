@@ -58,6 +58,24 @@ builder.Services.AddScoped<IServiceBLL<TinBai>, ServiceBLL<TinBai>>();
 builder.Services.AddScoped<ITinbaiRepository, TinBaiRepository>();
 builder.Services.AddScoped<ITinBaiBLL, TinbaiBLL>();
 
+
+builder.Services.AddScoped<IRepository<XepHang>, Repository<XepHang>>();
+builder.Services.AddScoped<IServiceBLL<XepHang>, ServiceBLL<XepHang>>();
+builder.Services.AddScoped<IXepHangRepository, XepHangRepository>();
+builder.Services.AddScoped<IXepHangBLL, XepHangBLL>();
+
+builder.Services.AddScoped<IRepository<TranDau>, Repository<TranDau>>();
+builder.Services.AddScoped<IServiceBLL<TranDau>, ServiceBLL<TranDau>>();
+builder.Services.AddScoped<ITranDauRepository, TranDauRepository>();
+builder.Services.AddScoped<ITranDauBLL, TranDauBLL>();
+
+
+builder.Services.AddScoped<IRepository<DoiThiDau>, Repository<DoiThiDau>>();
+builder.Services.AddScoped<IServiceBLL<DoiThiDau>, ServiceBLL<DoiThiDau>>();
+builder.Services.AddScoped<IDoiThiDauRepository, DoiThiDauRepository>();
+builder.Services.AddScoped<IDoiThiDauBLL, DoiThiDauBLL>();
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
