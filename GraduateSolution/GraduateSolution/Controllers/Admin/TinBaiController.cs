@@ -16,6 +16,7 @@ namespace GraduateSolution
         public Task<int> Add([FromForm] TinBai tinBai)
         {
             tinBai.Matinbai = Guid.NewGuid().ToString();
+            tinBai.Thoigiandang = DateTime.Now;
             var res = _tinBaiBLL.AddAsync(tinBai);
             return res;
         }
@@ -23,6 +24,7 @@ namespace GraduateSolution
         public Task<int> Update([FromForm]TinBai tinBai)
         {
             var res = _tinBaiBLL.Update(tinBai);
+            tinBai.Thoigiandang = DateTime.Now;
             return res;
         }
         [HttpPost("Delete")]
