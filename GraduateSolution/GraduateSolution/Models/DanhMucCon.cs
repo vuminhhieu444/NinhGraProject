@@ -10,6 +10,6 @@ namespace GraduateSolution.Models
         public string? Tendmc { get; set; }
         public string? Mota { get; set; }
 
-        public virtual DanhMuc? MadmNavigation { get; set; }
+        //public virtual DanhMuc? MadmNavigation { get; set; }
     }
 }

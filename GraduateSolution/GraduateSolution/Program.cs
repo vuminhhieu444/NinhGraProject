@@ -1,5 +1,7 @@
 using GraduateSolution;
+using GraduateSolution.BLL.CategoryBLL;
 using GraduateSolution.BLL.NguoiDungBLL;
+using GraduateSolution.BLL.TinbaiBLL;
 using GraduateSolution.DAL.AdminDAL;
 using GraduateSolution.DAL.NguoiDungDAL;
 using GraduateSolution.Models;
@@ -38,6 +40,23 @@ builder.Services.AddScoped<IServiceBLL<NguoiDung>, ServiceBLL<NguoiDung>>();
 builder.Services.AddScoped<INguoidungRepository, NguoidungRepository>();
 builder.Services.AddScoped<INguoiDungBLL, NguoiDungBLL>();
 
+
+builder.Services.AddScoped<IRepository<DanhMuc>, Repository<DanhMuc>>();
+builder.Services.AddScoped<IServiceBLL<DanhMuc>, ServiceBLL<DanhMuc>>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<ICategoryBLL, CategoryBLL>();
+
+
+builder.Services.AddScoped<IRepository<DanhMucCon>, Repository<DanhMucCon>>();
+builder.Services.AddScoped<IServiceBLL<DanhMucCon>, ServiceBLL<DanhMucCon>>();
+builder.Services.AddScoped<ISubCategory, SubCategory>();
+builder.Services.AddScoped<ISubCategoryBLL, SubCategoryBLL>();
+
+
+builder.Services.AddScoped<IRepository<TinBai>, Repository<TinBai>>();
+builder.Services.AddScoped<IServiceBLL<TinBai>, ServiceBLL<TinBai>>();
+builder.Services.AddScoped<ITinbaiRepository, TinBaiRepository>();
+builder.Services.AddScoped<ITinBaiBLL, TinbaiBLL>();
 
 var app = builder.Build();
 

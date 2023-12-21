@@ -26,5 +26,17 @@ namespace GraduateSolution
             var res = _nguoiDungBLL.Update(nguoiDung);
             return res;
         }
+        [HttpGet("GetListUser")]
+        public Task<List<NguoiDung>> GetListNguoiDung()
+        {
+            var res = _nguoiDungBLL.GetListAsync();
+            return res;
+        }
+        [HttpGet("GetUser/{id}")]
+        public Task<NguoiDung> GetNguoiDung(string id)
+        {
+            var res = _nguoiDungBLL.FindByIdAsync(id);
+            return res;
+        }
     }
 }

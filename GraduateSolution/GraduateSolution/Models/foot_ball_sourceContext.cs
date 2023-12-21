@@ -125,11 +125,11 @@ namespace GraduateSolution.Models
                     .HasMaxLength(50)
                     .HasColumnName("TENDMC");
 
-                entity.HasOne(d => d.MadmNavigation)
-                    .WithMany(p => p.DanhMucCons)
-                    .HasForeignKey(d => d.Madm)
-                    .OnDelete(DeleteBehavior.Cascade)
-                    .HasConstraintName("FK_danh_muc_con_danh_muc");
+                //entity.HasOne(d => d.MadmNavigation)
+                //    .WithMany(p => p.DanhMucCons)
+                //    .HasForeignKey(d => d.Madm)
+                //    .OnDelete(DeleteBehavior.Cascade)
+                //    .HasConstraintName("FK_danh_muc_con_danh_muc");
             });
 
             modelBuilder.Entity<NguoiDung>(entity =>

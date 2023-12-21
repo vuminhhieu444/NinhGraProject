@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
-namespace GraduateSolution.Controllers
+namespace GraduateSolution
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -37,6 +37,12 @@ namespace GraduateSolution.Controllers
         public Task<List<Admin>> GetList()
         {
             var res = _admin.GetListAsync();
+            return res;
+        }
+        [HttpGet("GetAdmin/{id}")]
+        public Task<Admin> GetAdminById(string id)
+        {
+            var res = _admin.FindByIdAsync(id);
             return res;
         }
         [HttpPost("AdminLoginCheck")]
