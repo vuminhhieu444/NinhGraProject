@@ -16,7 +16,7 @@ namespace GraduateSolution.Models
         public string? MaGiaiDau { get; set; }
         public string? MaDoiThiDau { get; set; }
 
-        public virtual DoiThiDau? MaDoiThiDauNavigation { get; set; }
-        public virtual GiaiDau? MaGiaiDauNavigation { get; set; }
+        //public virtual DoiThiDau? MaDoiThiDauNavigation { get; set; }
+        //public virtual GiaiDau? MaGiaiDauNavigation { get; set; }
     }
 }
