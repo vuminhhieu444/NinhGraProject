@@ -1,4 +1,5 @@
-﻿namespace GraduateSolution
+﻿
+namespace GraduateSolution
 {
     public interface IRepository<T> where T : class
     {
@@ -8,5 +9,6 @@
         Task<int> UpdateByIdAsync(T entity);
         Task<int> AddEntityAsync(T entity);
         Task<bool> IsExist(string id);
+        Task<PaginationModel<T>> Paginate(string page, string pageSize);
     }
 }

@@ -21,6 +21,7 @@ namespace GraduateSolution.Models
         public virtual DbSet<DanhMuc> DanhMucs { get; set; } = null!;
         public virtual DbSet<DanhMucCon> DanhMucCons { get; set; } = null!;
         public virtual DbSet<DoiThiDau> DoiThiDaus { get; set; } = null!;
+        public virtual DbSet<GiaiDau> GiaiDaus { get; set; } = null!;
         public virtual DbSet<NguoiDung> NguoiDungs { get; set; } = null!;
         public virtual DbSet<TinBai> TinBais { get; set; } = null!;
         public virtual DbSet<TranDau> TranDaus { get; set; } = null!;
@@ -146,6 +147,15 @@ namespace GraduateSolution.Models
                 entity.Property(e => e.TenGiaiDau).HasMaxLength(100);
             });
 
+            modelBuilder.Entity<GiaiDau>(entity =>
+            {
+                entity.ToTable("GiaiDau");
+
+                entity.Property(e => e.Id).HasMaxLength(50);
+
+                entity.Property(e => e.TenGiaiDau).HasMaxLength(50);
+            });
+
             modelBuilder.Entity<NguoiDung>(entity =>
             {
                 entity.HasKey(e => e.Manguoidung)
@@ -242,6 +252,10 @@ namespace GraduateSolution.Models
                     .HasMaxLength(5)
                     .IsUnicode(false)
                     .IsFixedLength();
+
+                entity.Property(e => e.MaDoiThiDau).HasMaxLength(50);
+
+                entity.Property(e => e.MaGiaiDau).HasMaxLength(50);
 
                 entity.Property(e => e.TenDoiThiDau).HasMaxLength(30);
 

@@ -19,7 +19,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowAll", builder =>
         builder.AllowAnyOrigin()
                .AllowAnyMethod()
-               .AllowAnyHeader());
+               .AllowAnyHeader().WithOrigins());
 });
 builder.Services.AddSwaggerGen();
 
@@ -74,6 +74,13 @@ builder.Services.AddScoped<IRepository<DoiThiDau>, Repository<DoiThiDau>>();
 builder.Services.AddScoped<IServiceBLL<DoiThiDau>, ServiceBLL<DoiThiDau>>();
 builder.Services.AddScoped<IDoiThiDauRepository, DoiThiDauRepository>();
 builder.Services.AddScoped<IDoiThiDauBLL, DoiThiDauBLL>();
+
+
+builder.Services.AddScoped<IRepository<GiaiDau>, Repository<GiaiDau>>();
+builder.Services.AddScoped<IServiceBLL<GiaiDau>, ServiceBLL<GiaiDau>>();
+builder.Services.AddScoped<IGiaiDauRepository, GiaiDauRepository>();
+builder.Services.AddScoped<IGiaiDauBLL, GiaiDauBLL>();
+
 
 
 var app = builder.Build();

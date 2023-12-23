@@ -72,5 +72,42 @@ namespace GraduateSolution
                 return 0;
             }
         }
+
+        public async Task<PaginationModel<T>> Paginate(string pageIndex, string pageSize)
+        {
+            try
+            {
+                int pageInt=int.Parse(pageIndex);
+                int pageSizeInt = int.Parse(pageSize);
+                var paginationModel = new PaginationModel<T>();
+                var records = _repository.Set<T>().ToListAsync().Result.ToList().Skip((pageInt - 1) * pageSizeInt).Take(pageSizeInt).ToList();
+                var recordsNum = records.Count;
+
+                var totalPage = 1;
+                var res = (double)recordsNum / (double)pageSizeInt;
+
+
+
+                if (res <= 1)
+                {
+                    totalPage = 1;
+                }
+                else if (res > 1)
+                {
+                    totalPage = (int)res + 1;
+                }
+
+                paginationModel.ListItem = records;
+                paginationModel.TotalPage1 = totalPage;
+                paginationModel.TotalCount = _repository.Set<T>().ToListAsync().Result.ToList().Count();
+                return paginationModel;
+
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
     }
 }

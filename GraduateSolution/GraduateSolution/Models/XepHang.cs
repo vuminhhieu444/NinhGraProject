@@ -13,5 +13,7 @@ namespace GraduateSolution.Models
         public bool? IsDraw { get; set; }
         public bool? IsLose { get; set; }
         public string? HieuSo { get; set; }
+        public string? MaGiaiDau { get; set; }
+        public string? MaDoiThiDau { get; set; }
     }
 }

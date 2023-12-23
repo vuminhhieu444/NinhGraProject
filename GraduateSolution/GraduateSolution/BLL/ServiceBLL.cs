@@ -53,9 +53,15 @@
             return res;
         }
 
+
         public async Task<int> Update(T entity)
         {
             var res = await _repository.UpdateByIdAsync(entity);
+            return res;
+        }
+        public Task<PaginationModel<T>> Paginate(string page, string pageSize)
+        {
+            var res= _repository.Paginate(page, pageSize);
             return res;
         }
     }

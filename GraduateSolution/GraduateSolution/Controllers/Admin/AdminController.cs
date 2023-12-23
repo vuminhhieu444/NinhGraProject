@@ -50,5 +50,11 @@ namespace GraduateSolution
         {
             return true;
         }
+        [HttpGet("Paginate/{pageIndex}/{pageSize}")]
+        public Task<PaginationModel<Admin>> PaginationModel(string pageIndex, string pageSize)
+        {
+            var res= _admin.Paginate(pageIndex, pageSize);
+            return res;
+        }
     }
 }

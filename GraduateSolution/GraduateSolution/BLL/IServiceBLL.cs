@@ -8,5 +8,6 @@
         Task<int> AddAsync(T entity);
         Task<List<T>> GetListAsync();
         Task<bool> IsExist(string id);
+        Task<PaginationModel<T>> Paginate(string page, string pageSize);
     }
 }
