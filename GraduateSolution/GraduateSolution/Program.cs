@@ -81,7 +81,15 @@ builder.Services.AddScoped<IServiceBLL<GiaiDau>, ServiceBLL<GiaiDau>>();
 builder.Services.AddScoped<IGiaiDauRepository, GiaiDauRepository>();
 builder.Services.AddScoped<IGiaiDauBLL, GiaiDauBLL>();
 
+builder.Services.AddScoped<IRepository<LogUser>, Repository<LogUser>>();
+builder.Services.AddScoped<IServiceBLL<LogUser>, ServiceBLL<LogUser>>();
+builder.Services.AddScoped<ILogUserRepository, LogUserRepository>();
+builder.Services.AddScoped<ILogUserBLL, LogUserBLL>();
 
+builder.Services.AddScoped<IRepository<LogAdmin>, Repository<LogAdmin>>();
+builder.Services.AddScoped<IServiceBLL<LogAdmin>, ServiceBLL<LogAdmin>>();
+builder.Services.AddScoped<ILogAdminRepositry, LogAdminRepository>();
+builder.Services.AddScoped<ILogAdminBLL, LogAdminBLL>();
 
 var app = builder.Build();
 
