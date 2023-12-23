@@ -9,11 +9,14 @@ namespace GraduateSolution.Models
         public string? TenGiaiDau { get; set; }
         public string? TenDoiThiDau { get; set; }
         public short? SoTranThiDau { get; set; }
-        public bool? IsWin { get; set; }
-        public bool? IsDraw { get; set; }
-        public bool? IsLose { get; set; }
+        public short? WinNum { get; set; }
+        public short? DrawNum { get; set; }
+        public short? LoseNum { get; set; }
         public string? HieuSo { get; set; }
         public string? MaGiaiDau { get; set; }
         public string? MaDoiThiDau { get; set; }
+
+        public virtual DoiThiDau? MaDoiThiDauNavigation { get; set; }
+        public virtual GiaiDau? MaGiaiDauNavigation { get; set; }
     }
 }
