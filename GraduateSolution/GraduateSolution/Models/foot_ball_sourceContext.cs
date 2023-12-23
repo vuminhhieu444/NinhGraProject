@@ -22,6 +22,8 @@ namespace GraduateSolution.Models
         public virtual DbSet<DanhMucCon> DanhMucCons { get; set; } = null!;
         public virtual DbSet<DoiThiDau> DoiThiDaus { get; set; } = null!;
         public virtual DbSet<GiaiDau> GiaiDaus { get; set; } = null!;
+        public virtual DbSet<LogAdmin> LogAdmins { get; set; } = null!;
+        public virtual DbSet<LogUser> LogUsers { get; set; } = null!;
         public virtual DbSet<NguoiDung> NguoiDungs { get; set; } = null!;
         public virtual DbSet<TinBai> TinBais { get; set; } = null!;
         public virtual DbSet<TranDau> TranDaus { get; set; } = null!;
@@ -153,7 +155,43 @@ namespace GraduateSolution.Models
 
                 entity.Property(e => e.Id).HasMaxLength(50);
 
+                entity.Property(e => e.MaDoiThiDau).HasMaxLength(50);
+
+                entity.Property(e => e.MaTranDau).HasMaxLength(50);
+
                 entity.Property(e => e.TenGiaiDau).HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<LogAdmin>(entity =>
+            {
+                entity.ToTable("LogAdmin");
+
+                entity.Property(e => e.Id).HasMaxLength(50);
+
+                entity.Property(e => e.Pass).HasMaxLength(50);
+
+                entity.Property(e => e.Role)
+                    .HasMaxLength(40)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.UserName)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<LogUser>(entity =>
+            {
+                entity.ToTable("LogUser");
+
+                entity.Property(e => e.Id).HasMaxLength(50);
+
+                entity.Property(e => e.Pass)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.UserName)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<NguoiDung>(entity =>
@@ -200,6 +238,8 @@ namespace GraduateSolution.Models
                     .HasMaxLength(50)
                     .HasColumnName("MATINBAI");
 
+                entity.Property(e => e.Comment).HasMaxLength(300);
+
                 entity.Property(e => e.Maadm)
                     .HasMaxLength(50)
                     .HasColumnName("MAADM");
@@ -232,6 +272,10 @@ namespace GraduateSolution.Models
                 entity.ToTable("TranDau");
 
                 entity.Property(e => e.Id).HasMaxLength(50);
+
+                entity.Property(e => e.MaDoiDau1).HasMaxLength(50);
+
+                entity.Property(e => e.MaDoiDau2).HasMaxLength(50);
 
                 entity.Property(e => e.TenDoiDau1).HasMaxLength(50);
 

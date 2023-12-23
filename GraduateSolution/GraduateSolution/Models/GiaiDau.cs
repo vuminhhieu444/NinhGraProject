@@ -12,6 +12,8 @@ namespace GraduateSolution.Models
 
         public string Id { get; set; } = null!;
         public string? TenGiaiDau { get; set; }
+        public string? MaDoiThiDau { get; set; }
+        public string? MaTranDau { get; set; }
 
         //public virtual ICollection<XepHang> XepHangs { get; set; }
     }

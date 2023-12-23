@@ -14,5 +14,6 @@ namespace GraduateSolution.Models
         public string? Noidung { get; set; }
         public DateTime? Thoigiandang { get; set; }
         public bool? Trangthai { get; set; }
+        public string? Comment { get; set; }
     }
 }
