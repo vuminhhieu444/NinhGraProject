@@ -144,6 +144,8 @@ namespace GraduateSolution.Models
 
                 entity.Property(e => e.Id).HasMaxLength(50);
 
+                entity.Property(e => e.MaGiaiDau).HasMaxLength(50);
+
                 entity.Property(e => e.TenDoiThiDau).HasMaxLength(50);
 
                 entity.Property(e => e.TenGiaiDau).HasMaxLength(100);
@@ -154,10 +156,6 @@ namespace GraduateSolution.Models
                 entity.ToTable("GiaiDau");
 
                 entity.Property(e => e.Id).HasMaxLength(50);
-
-                entity.Property(e => e.MaDoiThiDau).HasMaxLength(50);
-
-                entity.Property(e => e.MaTranDau).HasMaxLength(50);
 
                 entity.Property(e => e.TenGiaiDau).HasMaxLength(50);
             });
@@ -277,6 +275,8 @@ namespace GraduateSolution.Models
 
                 entity.Property(e => e.MaDoiDau2).HasMaxLength(50);
 
+                entity.Property(e => e.MaGiaiDau).HasMaxLength(50);
+
                 entity.Property(e => e.TenDoiDau1).HasMaxLength(50);
 
                 entity.Property(e => e.TenDoiDau2).HasMaxLength(50);
@@ -297,25 +297,11 @@ namespace GraduateSolution.Models
                     .IsUnicode(false)
                     .IsFixedLength();
 
-                entity.Property(e => e.MaDoiThiDau).HasMaxLength(50);
-
                 entity.Property(e => e.MaGiaiDau).HasMaxLength(50);
 
                 entity.Property(e => e.TenDoiThiDau).HasMaxLength(30);
 
                 entity.Property(e => e.TenGiaiDau).HasMaxLength(30);
-
-                //entity.HasOne(d => d.MaDoiThiDauNavigation)
-                //    .WithMany(p => p.XepHangs)
-                //    .HasForeignKey(d => d.MaDoiThiDau)
-                //    .OnDelete(DeleteBehavior.Cascade)
-                //    .HasConstraintName("FK_XepHang_DoiThiDau");
-
-                //entity.HasOne(d => d.MaGiaiDauNavigation)
-                //    .WithMany(p => p.XepHangs)
-                //    .HasForeignKey(d => d.MaGiaiDau)
-                //    .OnDelete(DeleteBehavior.Cascade)
-                //    .HasConstraintName("FK_XepHang_GiaiDau");
             });
 
             OnModelCreatingPartial(modelBuilder);

@@ -13,5 +13,6 @@ namespace GraduateSolution.Models
         public short? SoBanThangGhiDoiDau2 { get; set; }
         public string? MaDoiDau1 { get; set; }
         public string? MaDoiDau2 { get; set; }
+        public string? MaGiaiDau { get; set; }
     }
 }

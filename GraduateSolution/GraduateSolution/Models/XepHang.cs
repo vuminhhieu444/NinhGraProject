@@ -14,9 +14,5 @@ namespace GraduateSolution.Models
         public short? LoseNum { get; set; }
         public string? HieuSo { get; set; }
         public string? MaGiaiDau { get; set; }
-        public string? MaDoiThiDau { get; set; }
-
-        //public virtual DoiThiDau? MaDoiThiDauNavigation { get; set; }
-        //public virtual GiaiDau? MaGiaiDauNavigation { get; set; }
     }
 }
