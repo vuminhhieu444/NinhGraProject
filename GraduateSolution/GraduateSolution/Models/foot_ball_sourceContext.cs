@@ -264,6 +264,8 @@ namespace GraduateSolution.Models
 
                 entity.Property(e => e.Noidung).HasColumnName("NOIDUNG");
 
+                entity.Property(e => e.TenDanhMuc).HasMaxLength(100);
+
                 entity.Property(e => e.Tentinbai)
                     .HasMaxLength(50)
                     .HasColumnName("TENTINBAI");
