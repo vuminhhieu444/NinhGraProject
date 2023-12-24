@@ -91,6 +91,12 @@ builder.Services.AddScoped<IServiceBLL<LogAdmin>, ServiceBLL<LogAdmin>>();
 builder.Services.AddScoped<ILogAdminRepositry, LogAdminRepository>();
 builder.Services.AddScoped<ILogAdminBLL, LogAdminBLL>();
 
+
+builder.Services.AddScoped<IRepository<BinhLuan>, Repository<BinhLuan>>();
+builder.Services.AddScoped<IServiceBLL<BinhLuan>, ServiceBLL<BinhLuan>>();
+builder.Services.AddScoped<IBinhLuanRepository, BinhLuanRepository>();
+builder.Services.AddScoped<IBinhLuanBLL, BinhLuanBLL>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -103,7 +109,7 @@ app.UseCors(builder =>
         builder
         .WithOrigins("http://domain.com")
         .AllowAnyMethod()
-        .AllowAnyHeader());
+        .AllowAnyHeader().AllowAnyOrigin());
 app.UseCors("AllowAll");
 
 app.UseHttpsRedirection();

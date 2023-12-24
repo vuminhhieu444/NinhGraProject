@@ -45,5 +45,12 @@ namespace GraduateSolution
             var res = _tinBaiBLL.FindByIdAsync(id);
             return res;
         }
+        [HttpGet("Get-Tin-Bai-By-Danh-Muc/{id}")]
+        public async Task<List<TinBai>> GetTinBaiByIdDanhMuc(string id)
+        {
+            var tinBais = _tinBaiBLL.GetListAsync();
+            var res = tinBais.Result.Where(m => m.Madm.ToLower().Trim() == id.ToLower().Trim()).ToList();
+            return res;
+        }
     }
 }

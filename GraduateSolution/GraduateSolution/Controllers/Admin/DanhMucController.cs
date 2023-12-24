@@ -1,4 +1,5 @@
 ﻿using GraduateSolution.BLL.CategoryBLL;
+using GraduateSolution.BLL.NguoiDungBLL;
 using GraduateSolution.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -43,6 +44,12 @@ namespace GraduateSolution
         public Task<DanhMuc> GetDanMucById(string id)
         {
             var res = _categoryBLL.FindByIdAsync(id);
+            return res;
+        }
+        [HttpGet("Paginate/{pageIndex}/{pageSize}")]
+        public Task<PaginationModel<DanhMuc>> PaginationModel(string pageIndex, string pageSize)
+        {
+            var res = _categoryBLL.Paginate(pageIndex, pageSize);
             return res;
         }
     }

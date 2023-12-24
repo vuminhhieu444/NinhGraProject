@@ -8,12 +8,10 @@ namespace GraduateSolution.Models
         public string Matinbai { get; set; } = null!;
         public string? Tentinbai { get; set; }
         public string? Madm { get; set; }
-        public string? Madmc { get; set; }
         public string? Maadm { get; set; }
         public string? Tieude { get; set; }
         public string? Noidung { get; set; }
         public DateTime? Thoigiandang { get; set; }
-        public bool? Trangthai { get; set; }
-        public string? Comment { get; set; }
+        public string? DuongDanAnh { get; set; }
     }
 }

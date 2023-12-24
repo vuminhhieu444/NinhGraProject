@@ -1,4 +1,5 @@
-﻿using GraduateSolution.Models;
+﻿using GraduateSolution.BLL.NguoiDungBLL;
+using GraduateSolution.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -42,6 +43,12 @@ namespace GraduateSolution.Controllers.Admin
         public Task<DoiThiDau> GetEntity(string id)
         {
             var res = _doiThiDauBLL.FindByIdAsync(id);
+            return res;
+        }
+        [HttpGet("Paginate/{pageIndex}/{pageSize}")]
+        public Task<PaginationModel<DoiThiDau>> PaginationModel(string pageIndex, string pageSize)
+        {
+            var res = _doiThiDauBLL.Paginate(pageIndex, pageSize);
             return res;
         }
     }

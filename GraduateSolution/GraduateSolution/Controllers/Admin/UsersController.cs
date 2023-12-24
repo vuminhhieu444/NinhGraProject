@@ -38,5 +38,11 @@ namespace GraduateSolution
             var res = _nguoiDungBLL.FindByIdAsync(id);
             return res;
         }
+        [HttpGet("Paginate/{pageIndex}/{pageSize}")]
+        public Task<PaginationModel<NguoiDung>> PaginationModel(string pageIndex, string pageSize)
+        {
+            var res = _nguoiDungBLL.Paginate(pageIndex, pageSize);
+            return res;
+        }
     }
 }

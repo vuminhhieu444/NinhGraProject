@@ -44,5 +44,12 @@ namespace GraduateSolution
             var res = _xepHangBLL.FindByIdAsync(id);
             return res;
         }
+        [HttpGet("Get-BXH-By-Giai-Dau/{id}")]
+        public async Task<List<XepHang>> GetByIdGiaiDau(string id)
+        {
+            var listBxh = _xepHangBLL.GetListAsync();
+            var res= listBxh.Result.Where(m=>m.MaGiaiDau.ToLower().Trim()==id.ToLower().Trim()).ToList();
+            return res;
+        }
     }
 }

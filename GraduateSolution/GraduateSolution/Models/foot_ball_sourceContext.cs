@@ -18,6 +18,7 @@ namespace GraduateSolution.Models
 
         public virtual DbSet<Admin> Admins { get; set; } = null!;
         public virtual DbSet<Anh> Anhs { get; set; } = null!;
+        public virtual DbSet<BinhLuan> BinhLuans { get; set; } = null!;
         public virtual DbSet<DanhMuc> DanhMucs { get; set; } = null!;
         public virtual DbSet<DanhMucCon> DanhMucCons { get; set; } = null!;
         public virtual DbSet<DoiThiDau> DoiThiDaus { get; set; } = null!;
@@ -88,6 +89,21 @@ namespace GraduateSolution.Models
                     .HasColumnName("TENANH");
 
                 entity.Property(e => e.Trangthai).HasColumnName("TRANGTHAI");
+            });
+
+            modelBuilder.Entity<BinhLuan>(entity =>
+            {
+                entity.HasKey(e => e.MaBinhLuan);
+
+                entity.ToTable("BinhLuan");
+
+                entity.Property(e => e.MaBinhLuan).HasMaxLength(50);
+
+                entity.Property(e => e.MaTinBai).HasMaxLength(50);
+
+                entity.Property(e => e.MaUser).HasMaxLength(50);
+
+                entity.Property(e => e.ThoiGian).HasColumnType("datetime");
             });
 
             modelBuilder.Entity<DanhMuc>(entity =>
@@ -236,7 +252,7 @@ namespace GraduateSolution.Models
                     .HasMaxLength(50)
                     .HasColumnName("MATINBAI");
 
-                entity.Property(e => e.Comment).HasMaxLength(300);
+                entity.Property(e => e.DuongDanAnh).HasMaxLength(300);
 
                 entity.Property(e => e.Maadm)
                     .HasMaxLength(50)
@@ -245,10 +261,6 @@ namespace GraduateSolution.Models
                 entity.Property(e => e.Madm)
                     .HasMaxLength(50)
                     .HasColumnName("MADM");
-
-                entity.Property(e => e.Madmc)
-                    .HasMaxLength(50)
-                    .HasColumnName("MADMC");
 
                 entity.Property(e => e.Noidung).HasColumnName("NOIDUNG");
 
@@ -261,8 +273,6 @@ namespace GraduateSolution.Models
                     .HasColumnName("THOIGIANDANG");
 
                 entity.Property(e => e.Tieude).HasColumnName("TIEUDE");
-
-                entity.Property(e => e.Trangthai).HasColumnName("TRANGTHAI");
             });
 
             modelBuilder.Entity<TranDau>(entity =>
